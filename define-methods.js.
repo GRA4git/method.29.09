@@ -1,0 +1,60 @@
+const slova = [ "rev", "vers", "aters"]
+const containingQuotes = (sentences) => sentences.filter(item => containsQuote(item))
+    console.log(containingQuotes(slova));
+
+
+const num = [6, 2, 3, 4, 2, 1 ,7, 8]
+const balance = (expenses, startingBalance) =>{
+    const remainingBalance = expenses.reduce((prev, item) => prev - item, 10000)
+    return remainingBalance
+}
+console.log(balance(num))
+
+
+const slova = [ "rev", "vers", "aters"]
+  const evenLengthWord = (words) => words.filter(item => item % 2 === 0 && item !== 0)
+  console.log(evenLengthWord(slova))
+   
+  
+
+  const slova = [ "maybe my name Ruslan"]
+  const snippets = (sentences, desiredWordCount = 3) => {
+      const snippedSentences = sentences.map((item)=> snippet(item, desiredWordCount ) )
+  return snippedSentences
+      }
+  console.log(snippets(slova, 3))
+  
+  // const containingQuotes = (sentences) => sentences.filter(item => containsQuote(item))
+  
+const arr = ['Guchigow', 'Ruslan', 'Alamatovich'];
+
+const initials = (names) => {
+  const namesAsInitials = names.map((item) => convertToInitials(item));
+  return namesAsInitials;
+};
+
+console.log(initials(arr));
+  
+  const arr = [["Ruslan", "name"],["Guchigow", "lastName"],["48", "age];
+
+const pairAbbreviations = (pairData) =>
+  pairData.reduce((acum, item) => {
+    acum[item[1]] = item[0];
+    return acum;
+  }, {});
+
+console.log(pairAbbreviations(arr));
+  
+  /* вспомогательные функции, их трогать не нужно */
+  const convertToInitials = (name) => {
+    return name.match(/\b[a-z]/ig).join('').toUpperCase();
+  }
+  
+  const containsQuote = (sentence) => {
+    return /(".+")/.test(sentence);
+  }
+  
+  const snippet = (sentence, desiredWordCount = 3) => {
+    const pattern = new RegExp(`((\\w+ ){${desiredWordCount}})(.*)`);
+  
+    return sentence.replace(pattern, '$1...')
